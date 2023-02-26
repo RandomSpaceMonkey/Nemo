@@ -9,7 +9,7 @@
         "-fansi-escape-codes",
         "${workspaceFolder}/**/*.cpp",
         "-o",
-        "${workspaceFolder}/bulid/${fileBasenameNoExtension}",
+        "${workspaceFolder}/build/${fileBasenameNoExtension}",
         "-I",
         "${workspaceFolder}/Headers/",
         "-Wall",
