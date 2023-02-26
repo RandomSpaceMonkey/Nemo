@@ -1,7 +1,7 @@
 #include <iostream>
 #include <Encoder.hpp>
 
-int main(int, char**) {
+int main() {
     std::cout << "Hello, world!\n";
     Encoder::print();
 }
