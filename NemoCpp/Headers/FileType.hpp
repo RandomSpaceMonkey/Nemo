@@ -1,0 +1,4 @@
+enum FileType {
+    PNG,
+    UNKNOWN
+};

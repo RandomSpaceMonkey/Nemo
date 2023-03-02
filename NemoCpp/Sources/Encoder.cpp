@@ -1,7 +1,10 @@
 #include <iostream>
 #include <Encoder.hpp>
 
-void Encoder::print()
+void Encoder::encode(std::string filepath, std::string message)
 {
-    std::cout << "hello from encoder";
+}
+
+void Encoder::decode(std::string filepath, std::string message)
+{
 }
