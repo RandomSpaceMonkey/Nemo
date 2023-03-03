@@ -1,6 +1,6 @@
 #include <string>
 #include <fstream>
-#include <InvalidFileTypeException.hpp>
+#include "src/lib/invalid_file_type_exception.hh"
 
 #define PNG_HEADER_SIZE 8
 #define PNG_FILE_EXT "png"

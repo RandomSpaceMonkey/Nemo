@@ -1,5 +1,5 @@
 #include <string>
-#include <FileType.hpp>
+#include "src/lib/filetype.hh"
 
 #define UNKNOWN_FILE "Unknown"
 

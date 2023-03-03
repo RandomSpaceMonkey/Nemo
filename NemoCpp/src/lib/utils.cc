@@ -1,5 +1,5 @@
-#include "Utils.hpp"
-#include <PNGEncoder.hpp>
+#include "src/lib/utils.hh"
+#include "src/lib/encoders/pngencoder.hh"
 
 FileType utils::get_file_type(std::string filepath) {
     try {
