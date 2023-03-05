@@ -7,16 +7,17 @@
       "args": [
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
-        "${workspaceFolder}/**/*.cpp",
+        "${workspaceFolder}/src/main/main.cc",
         "-o",
         "${workspaceFolder}/build/${fileBasenameNoExtension}",
         "-I",
-        "${workspaceFolder}/src/",
+        "${workspaceFolder}",
         "-Wall",
-        "-g"
+        "-g",
+        "-std=c++17"
       ],
       "options": {
-        "cwd": "${workspaceFolder}/Sources"
+        "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
       "group": {

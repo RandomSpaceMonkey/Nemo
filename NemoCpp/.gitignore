@@ -27,3 +27,5 @@
 .bazelversion
 # User-specific .bazelrc
 user.bazelrc
+# Build output directory
+build/
