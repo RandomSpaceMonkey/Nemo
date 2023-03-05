@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <string>
 
-class InvalidFileTypeException: public std::runtime_error {
+class invalid_filetype_exception: public std::runtime_error {
     public:
-        InvalidFileTypeException(std::string filepath): std::runtime_error(filepath + "is not valid") {};
+        invalid_filetype_exception(std::string filepath): std::runtime_error(filepath + "is not valid") {};
 };

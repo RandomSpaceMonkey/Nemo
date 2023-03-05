@@ -8,7 +8,7 @@ void PNGEncoder::encode(std::string filepath, std::string message)
     try {
         PNGEncoder::validate(file);
     } catch (std::runtime_error) {
-        throw InvalidFileTypeException(filepath);
+        throw invalid_filetype_exception(filepath);
     }
 }
 
