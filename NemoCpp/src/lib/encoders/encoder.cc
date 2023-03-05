@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/lib/encoders/encoder.hh"
+#include "lib/encoders/encoder.hh"
 
 void Encoder::encode(std::string filepath, std::string message)
 {

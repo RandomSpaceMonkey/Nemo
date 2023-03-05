@@ -1,7 +1,10 @@
 #include <iostream>
-#include "src/lib/encoders/encoder.hh"
-#include "src/lib/utils.hh"
+#include "lib/encoders/encoder.hh"
+#include "lib/utils.hh"
 
-int main() {
-    std::cout << utils::to_string(utils::get_file_type("a.jpeg")) << "\n";
+int main(int argc, char** argv) {
+    if (argc < MIN_ARGS_COUNT) {
+        utils::print_usage();
+        return 1;
+    }
 }
