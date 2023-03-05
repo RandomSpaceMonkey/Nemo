@@ -7,18 +7,15 @@
       "args": [
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
-        "${workspaceFolder}/src/main/main.cc",
+        "${workspaceFolder}/src/**/*.cc",
         "-o",
-        "${workspaceFolder}/build/${fileBasenameNoExtension}",
+        "${workspaceFolder}/build/nemo",
         "-I",
-        "${workspaceFolder}",
+        "${workspaceFolder}/src/",
         "-Wall",
         "-g",
         "-std=c++17"
       ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
       "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
