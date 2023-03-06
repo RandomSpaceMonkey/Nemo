@@ -9,4 +9,5 @@ enum Action {
 };
 
 Action from_string(std::string action_str);
+
 #endif

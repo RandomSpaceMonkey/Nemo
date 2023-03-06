@@ -2,6 +2,9 @@
 #include <fstream>
 #include "lib/invalid_file_type_exception.hh"
 
+#ifndef PNGENCODER_H
+#define PNGENCODER_H
+
 #define PNG_HEADER_SIZE 8
 #define PNG_FILE_EXT "png"
 
@@ -13,3 +16,5 @@ class PNGEncoder {
         static void validate(std::ifstream& file);
         static const uint8_t header[PNG_HEADER_SIZE];
 };
+
+#endif
