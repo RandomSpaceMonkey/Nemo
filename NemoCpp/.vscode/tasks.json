@@ -2,21 +2,22 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: clang++ build Nemo",
+      "label": "C/C++: clang++ build active file",
       "command": "/usr/bin/clang++",
       "args": [
         "-fcolor-diagnostics",
         "-fansi-escape-codes",
-        "src/**/*.cc",
-        "-I",
-        "src/",
-        "-Wall",
-        "-g",
+        "${workspaceFolder}/src/**/*.cc",
         "-std=c++17",
-        "-v",
+        "-I",
+        "${workspaceFolder}/src/lib/",
+        "-g",
         "-o",
-        "build/nemo"
+        "${workspaceFolder}/build/nemo"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",

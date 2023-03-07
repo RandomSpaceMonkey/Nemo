@@ -1,11 +1,17 @@
-#include <lib/action.hh>
+#include <action.hh>
 
-Action from_string(std::string action_str) {
-    if (action_str == "encode") {
+Action from_string(std::string action_str)
+{
+    if (action_str == "encode")
+    {
         return Action::Encode;
-    } else if (action_str == "decode") {
+    }
+    else if (action_str == "decode")
+    {
         return Action::Decode;
-    } else {
+    }
+    else
+    {
         throw std::runtime_error("Unsupported Action " + action_str);
     }
 }

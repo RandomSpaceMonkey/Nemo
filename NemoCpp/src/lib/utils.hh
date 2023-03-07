@@ -1,14 +1,12 @@
 #include <string>
-#include "lib/filetype.hh"
+#include "filetype.hh"
 
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
 #define MIN_ARGS_COUNT 4 // executable path, action, file path, message
 
-namespace utils {
-    std::string get_message_from_args(int argc, char** argv);
+namespace utils
+{
+    std::string get_message_from_args(int argc, char **argv);
     void print_usage();
 };
-
-#endif

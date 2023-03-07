@@ -1,7 +1,7 @@
 #include <iostream>
-#include "lib/utils.hh"
-#include "lib/args.hh"
-#include "lib/encoders/encoder.hh"
+#include "utils.hh"
+#include "args.hh"
+#include "encoders/encoder.hh"
 
 int main(int argc, char **argv)
 {
