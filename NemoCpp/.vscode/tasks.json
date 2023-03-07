@@ -13,6 +13,7 @@
         "-Wall",
         "-g",
         "-std=c++17",
+        "-v",
         "-o",
         "build/nemo"
       ],
