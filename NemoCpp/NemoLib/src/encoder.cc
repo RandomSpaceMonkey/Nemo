@@ -1,6 +1,6 @@
 #include <iostream>
-#include "encoders/encoder.hh"
-#include "encoders/pngencoder.hh"
+#include "encoder.hh"
+#include "pngencoder.hh"
 #include "filetype.hh"
 
 void Encoder::encode(std::string filepath, std::string message)

@@ -1,5 +1,5 @@
 #include "filetype.hh"
-#include "encoders/pngencoder.hh"
+#include "pngencoder.hh"
 
 #define UNKNOWN_FILE "Unknown"
 
