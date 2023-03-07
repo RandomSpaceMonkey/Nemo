@@ -8,9 +8,9 @@
 
 void Encoder::encode(std::string filepath, std::string message)
 {
+    auto filetype = Encoder::validate(filepath);
     Encoder::create_output_directory();
     auto new_filepath = Encoder::copy_file_to_output_directory(filepath);
-    auto filetype = filetype::get_file_type(new_filepath);
     switch (filetype)
     {
     case FileType::PNG:
@@ -26,6 +26,37 @@ void Encoder::encode(std::string filepath, std::string message)
 
 void Encoder::decode(std::string filepath, std::string message)
 {
+}
+
+FileType Encoder::validate(std::string filepath)
+{
+    auto filetype = filetype::get_file_type(filepath);
+    switch (filetype)
+    {
+    case FileType::PNG:
+        PNGEncoder::validate(filepath);
+        break;
+    case FileType::UNKNOWN:
+        Encoder::validate_unknown_filetype(filepath);
+        break;
+    default:
+        throw std::runtime_error("Exhastive use of FileType");
+    }
+    return filetype;
+}
+
+FileType Encoder::validate_unknown_filetype(std::string filepath)
+{
+    try
+    {
+        PNGEncoder::validate(filepath);
+        return FileType::PNG;
+    }
+    catch (invalid_filetype_exception)
+    {
+    }
+
+    throw std::runtime_error("Cannot encode message into " + filepath + ": unsupported file type");
 }
 
 void Encoder::encode_unknown_filetype(std::string filepath, std::string message)
