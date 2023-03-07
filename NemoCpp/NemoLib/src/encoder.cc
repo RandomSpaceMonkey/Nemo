@@ -10,7 +10,7 @@ void Encoder::encode(std::string filepath, std::string message)
 {
     auto filetype = Encoder::validate(filepath);
     Encoder::create_output_directory();
-    auto new_filepath = Encoder::copy_file_to_output_directory(filepath);
+    auto new_filepath = Encoder::copy_file_to_output_directory(filepath, filetype);
     switch (filetype)
     {
     case FileType::PNG:
@@ -37,7 +37,7 @@ FileType Encoder::validate(std::string filepath)
         PNGEncoder::validate(filepath);
         break;
     case FileType::UNKNOWN:
-        Encoder::validate_unknown_filetype(filepath);
+        filetype = Encoder::validate_unknown_filetype(filepath);
         break;
     default:
         throw std::runtime_error("Exhastive use of FileType");
@@ -78,10 +78,10 @@ void Encoder::create_output_directory()
     std::filesystem::create_directory(OUTPUT_DIRECTORY);
 }
 
-std::string Encoder::copy_file_to_output_directory(std::string filepath)
+std::string Encoder::copy_file_to_output_directory(std::string filepath, FileType filetype)
 {
     auto new_file_name = utils::get_file_name_from_path(filepath);
-    auto new_filepath = std::string(OUTPUT_DIRECTORY) + "/" + new_file_name;
+    auto new_filepath = std::string(OUTPUT_DIRECTORY) + "/" + new_file_name + "." + filetype::to_string(filetype);
     std::ifstream src(filepath, std::ios::binary);
     std::ofstream dst(new_filepath, std::ios::binary);
     dst << src.rdbuf();

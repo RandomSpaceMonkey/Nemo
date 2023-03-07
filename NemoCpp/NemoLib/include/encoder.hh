@@ -16,5 +16,5 @@ private:
     static FileType validate_unknown_filetype(std::string filepath);
     static void encode_unknown_filetype(std::string filepath, std::string message);
     static void create_output_directory();
-    static std::string copy_file_to_output_directory(std::string filepath);
+    static std::string copy_file_to_output_directory(std::string filepath, FileType filetype);
 };
