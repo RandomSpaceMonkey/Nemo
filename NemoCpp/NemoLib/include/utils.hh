@@ -10,4 +10,5 @@ namespace utils
     std::string get_message_from_args(int argc, char **argv);
     std::string get_file_name_from_path(std::string filepath);
     void print_usage();
+    uint32_t crc32(const unsigned char *s, size_t n);
 };

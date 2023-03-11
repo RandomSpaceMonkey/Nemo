@@ -1,15 +1,24 @@
-// #include "src/lib/encoders/pngencoder.hh"
-// #include "src/lib/filetype.hh"
+#include <iostream>
+#include <fstream>
 #include "pngencoder.hh"
 #include "filetype.hh"
+#include "pngchunk.hh"
 
-const uint8_t PNGEncoder::header[PNG_HEADER_SIZE] = {0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a};
+const char PNGEncoder::header[] = "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a";
+const char PNGEncoder::end_chunk[] = "\x00\x00\x00\x00\x49\x45\x4E\x44\xAE\x42\x60\x82";
+const char PNGEncoder::nemo_chunk_type[] = "\x6E\x65\x4D\x6F"; // neMo
 
 void PNGEncoder::encode(std::string filepath, std::string message)
 {
     try
     {
-        // PNGEncoder::validate(file);
+        std::ofstream ofile;
+        ofile.open(filepath, std::ios::binary | std::ios::in | std::ios::ate);
+        ofile.seekp(0 - IEND_CHUNK_SIZE, std::ios::cur);
+        PNGChunk chunk(nemo_chunk_type, message.c_str(), message.length());
+        chunk.to_file(ofile);
+        ofile.write((char *)PNGEncoder::end_chunk, IEND_CHUNK_SIZE);
+        ofile.close();
     }
     catch (std::runtime_error)
     {
