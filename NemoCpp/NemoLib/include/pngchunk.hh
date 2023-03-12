@@ -4,11 +4,13 @@
 
 class PNGChunk
 {
-public:
+private:
     const uint32_t length;
     const char *type;
     const char *data;
     uint32_t crc;
+
+public:
     PNGChunk(const char *type, const char *data, uint32_t length);
-    void to_file(std::ofstream &ofile);
+    friend std::ostream &operator<<(std::ostream &os, const PNGChunk &chunk);
 };

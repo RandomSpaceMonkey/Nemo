@@ -16,7 +16,7 @@ void PNGEncoder::encode(std::string filepath, std::string message)
         ofile.open(filepath, std::ios::binary | std::ios::in | std::ios::ate);
         ofile.seekp(0 - IEND_CHUNK_SIZE, std::ios::cur);
         PNGChunk chunk(nemo_chunk_type, message.c_str(), message.length());
-        chunk.to_file(ofile);
+        ofile << chunk;
         ofile.write((char *)PNGEncoder::end_chunk, IEND_CHUNK_SIZE);
         ofile.close();
     }
